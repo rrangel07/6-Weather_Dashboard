@@ -1,9 +1,10 @@
 var formEl= document.querySelector('#search-form');
-var searchUrl= 'http://api.openweathermap.org/geo/1.0/direct?q=';
+var searchUrl;
 var queryString;
 var APIkey= '06578d7a5b3d200e800ad787b4871526';
 var searchArray;
 var searchTermEl;
+var lat,lon;
 
 
 function searchSubmit (evt){
@@ -18,50 +19,60 @@ function searchSubmit (evt){
 
 function getParam (){
     searchArray=searchTermEl.split(',');
-        console.log(searchArray);
-        if(searchArray.length == 3){
-            for (let i=0; i<searchArray.length;i++){
-                searchArray[i]=searchArray[i].trim();                
-            }
-            console.log(searchArray);
-            var country= searchArray.pop();
-            var state= searchArray.pop();
-            var city= searchArray.pop();
-        searchUrl= `${searchUrl}${city},${state},${country}&appid=${APIkey}`;
-        console.log(searchUrl);
-      
-        } else if(searchArray.length == 2){
-            for (let i=0; i<searchArray.length;i++){
-                searchArray[i]=searchArray[i].trim();                
-            }
-            console.log(searchArray);
-            var country= searchArray.pop();
-            var city= searchArray.pop();
-            searchUrl= `${searchUrl}${city},${country}&appid=${APIkey}`;
-            console.log(searchUrl);
-        
-        } else{
-            window.alert('You need to introduce a City, State (if US) and country');// change alerts for modals
-            return;
+    console.log(searchArray);
+    if(searchArray.length == 3){
+        for (let i=0; i<searchArray.length;i++){
+            searchArray[i]=searchArray[i].trim();                
         }
-    searchCoord();
+        console.log(searchArray);
+        var country= searchArray.pop();
+        var state= searchArray.pop();
+        var city= searchArray.pop();
+        searchUrl= `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${APIkey}`;
+        console.log(searchUrl);
+    
+    } else if(searchArray.length == 2){
+        for (let i=0; i<searchArray.length;i++){
+            searchArray[i]=searchArray[i].trim();                
+        }
+        console.log(searchArray);
+        var country= searchArray.pop();
+        var city= searchArray.pop();
+        searchUrl= `http://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&appid=${APIkey}`;
+        console.log(searchUrl);
+    
+    } else{
+        window.alert('You need to introduce a City, State (if US) and country');// change alerts for modals
+        return;
+    }
+    searchCoord();    
 }
-
+    
 function searchCoord(){
-    var coord;
     fetch(searchUrl)
-        .then(function(response){
-            if (response.ok){
-                response.json()
-                    .then(function (data){
-                        console.log(data)
-                    })
-            }
-        })
+    .then(function(response){
+        if (!response.ok){
+            throw response.json();
+        }
+        return response.json();
+    })
+    .then(function (data){
+        console.log(data);
+        lat=data[0].lat;
+        console.log(lat);
+        lon=data[0].lon;
+        console.log(lon);
+        queryString = './weather.html?lat=' + lat + '&lon=' + lon + '&appid=' + APIkey;
+        console.log(queryString);
+        location.assign(queryString);
+    })
+    .catch(function (error){
+        console.log(error)
+        window.alert('Error');// change alerts for modals
+    });
 }
+
 formEl.addEventListener('submit',searchSubmit);
-
-
 
 
 // $(function() {
