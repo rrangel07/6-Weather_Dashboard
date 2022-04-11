@@ -13,11 +13,11 @@ function searchSubmit (evt){
     if (!searchTermEl){
         window.alert('You need to introduce a City, State (if US) and country');// change alerts for modals
     } else{
-        getParam();
+        getLocationDetails();
     }
 }
 
-function getParam (){
+function getLocationDetails (){
     searchArray=searchTermEl.split(',');
     console.log(searchArray);
     if(searchArray.length == 3){
@@ -28,6 +28,9 @@ function getParam (){
         var country= searchArray.pop();
         var state= searchArray.pop();
         var city= searchArray.pop();
+        queryString = `./weather.html?q=${city},${state},${country}`;
+        console.log(queryString);
+        location.assign(queryString);
         searchUrl= `http://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${APIkey}`;
         console.log(searchUrl);
     
@@ -37,7 +40,10 @@ function getParam (){
         }
         console.log(searchArray);
         var country= searchArray.pop();
-        var city= searchArray.pop();
+        var city= searchArray.pop();        
+        queryString = `./weather.html?q=${city},${country}`;
+        console.log(queryString);
+        location.assign(queryString);
         searchUrl= `http://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&appid=${APIkey}`;
         console.log(searchUrl);
     
@@ -45,32 +51,32 @@ function getParam (){
         window.alert('You need to introduce a City, State (if US) and country');// change alerts for modals
         return;
     }
-    searchCoord();    
+    // searchCoord();    
 }
     
-function searchCoord(){
-    fetch(searchUrl)
-    .then(function(response){
-        if (!response.ok){
-            throw response.json();
-        }
-        return response.json();
-    })
-    .then(function (data){
-        console.log(data);
-        lat=data[0].lat;
-        console.log(lat);
-        lon=data[0].lon;
-        console.log(lon);
-        queryString = './weather.html?lat=' + lat + '&lon=' + lon + '&appid=' + APIkey;
-        console.log(queryString);
-        location.assign(queryString);
-    })
-    .catch(function (error){
-        console.log(error)
-        window.alert('Error');// change alerts for modals
-    });
-}
+// function searchCoord(){
+//     fetch(searchUrl)
+//     .then(function(response){
+//         if (!response.ok){
+//             throw response.json();
+//         }
+//         return response.json();
+//     })
+//     .then(function (data){
+//         console.log(data);
+//         lat=data[0].lat;
+//         console.log(lat);
+//         lon=data[0].lon;
+//         console.log(lon);
+//         queryString = './weather.html?lat=' + lat + '&lon=' + lon;;
+//         console.log(queryString);
+//         location.assign(queryString);
+//     })
+//     .catch(function (error){
+//         console.log(error)
+//         window.alert('Error');// change alerts for modals
+//     });
+// }
 
 formEl.addEventListener('submit',searchSubmit);
 

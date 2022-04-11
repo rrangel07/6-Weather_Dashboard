@@ -11,62 +11,81 @@
 </head>
 <body class="d-flex flex-column align-items-center">
     
-    <div class="modal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+  <!-- <div class="modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <header>
+    <h1>Weather Dashboard</h1>
+  </header>
+<main class="container-fluid">
+  <div class="d-flex justify-content-center">
+    <div class="card col col-3">
+      <div>
+        <div class="card-body align-items-center">
+          <form class="text-center col-12">
+              <input type="text" id="city" name="city" class="col-10" placeholder="Search for a city">
+              <button type="button" class="btn btn-primary">Search</button>
+          </form>
+        </div>
+        <div class="row">
+          <h6 class="my-0">Previous searches</h6>
+          <div class="d-grid gap-2 col-10 mx-auto">
+            <button class="btn btn-primary" type="button">Button</button>
+            <button class="btn btn-primary" type="button">Button</button>
           </div>
         </div>
       </div>
-
-    <header>
-        <h1>Weather Dashboard</h1>
-    </header>
-
-    <div class="card-group row col-10">
-        <div class="card">
-          <div class="card-body row d-flex align-items-center">
-            <form class="text-center col-12">
-                <input type="text" id="city" name="city" class="col-4" placeholder="Search for a city"><i class="fa-solid fa-floppy-disk save-button icons-size"></i>
-                <a href="#" class="btn btn-primary col-2">Search</a>
-            </form>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h6 class="my-0">Previous searches</h6>
-                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" id="previous-searches-elements">
-                        <div class="btn-group me-2" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-primary">Atlanta</button>
-                        </div>
-                        <div class="btn-group me-2" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-primary">Atlanta</button>
-                        </div>
-                        <div class="btn-group me-2" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-primary">Atlanta</button>
-                        </div>
-                        <div class="btn-group me-2" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-primary">Atlanta</button>
-                        </div>
-                        
-                    </div>
-          </div>
-        </div>
-      </div>
+    </div>
     
+    <div class="card col col-9">
+        <div class="row justify-content-center" id="current-container">
+          <div class="col">
+            <div class="card">
+  
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+       
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between" id="forecast-container">
+          
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+
+           
+          
+        </div>
+
+      
     
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./assets/js/city.js"></script>
+  </div>
+</main> 
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/1.3.0/moment-duration-format.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="./assets/js/weather.js"></script>
 </body>
 </html>
