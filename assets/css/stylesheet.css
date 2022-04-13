@@ -1,3 +1,18 @@
 input{
     margin: 20px 10px;
 }
+h4{
+    font-weight: lighter;
+}
+
+#uvi{
+    padding: 2px 8px;
+    border-radius: 8px;
+}
+
+header{
+    height: 100px;
+    width: 100%;
+    background-color: grey;
+    text-align: center;
+}

@@ -11,26 +11,7 @@
 <body class="d-flex flex-column align-items-center">
     <header>
         <h1>Weather Dashboard</h1>
-    </header>
-    
-    <!-- <div class="modal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    
+    </header>    
     <div class="col-12 col-sm-10">
     <div class="card">
         <div class="card-body">
@@ -38,25 +19,14 @@
                 <li class="list-group-item">
                     <form class="d-flex flex-column align-items-center" id="search-form">
                         <h5 class="my-0">Search for a city</h5>
-                        <input type="text" id="city" name="city" class="col-8" placeholder="City, State Code (US Cities), Country Code. Example: Atlanta, GA, US">
+                        <input type="text" id="city" name="city" class="col-8" placeholder="City, State, Country. Example: Atlanta, GA, US">
                         <button class="btn btn-primary col-4">Search</button>
                     </form>
                 </li>
-                <li class="list-group-item d-flex flex-column align-items-center">
+                <li class="list-group-item d-flex flex-column align-items-center" >
                     <h5 class="my-0 d-inline-flex">Previous searches</h5>
-                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                        <div class="btn-group me-2" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-primary">Atlanta</button>
-                        </div>
-                        <div class="btn-group me-2" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-primary">Atlanta</button>
-                        </div>
-                        <div class="btn-group me-2" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-primary">Atlanta</button>
-                        </div>
-                        <div class="btn-group me-2" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-primary" id="submit">Atlanta</button>
-                        </div>
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" id="previousSearches">
+                        
                     </div>
                 </li>
             </ul>            
