@@ -10,6 +10,7 @@ var searchUrl;
 var getCoordUrl;
 var newCity = new cityEl ("","","");
 var APIkey= '06578d7a5b3d200e800ad787b4871526';
+var APIkey2='60cb3e67e91ed2f1a09252a5d54c17d7';
 
 function searchSubmit (evt){
     evt.preventDefault();
@@ -145,12 +146,13 @@ prevSearchContainer.addEventListener('click',clickButton)
         var country= searchParam.pop();
         var state= searchParam.pop();
         var city= searchParam.pop();
-        getCoordUrl= `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${APIkey}`;
+        // getCoordUrl= `https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},${country}&appid=${APIkey}`;
+        getCoordUrl=`https://api.positionstack.com/v1/forward?access_key=&query=1600 Pennsylvania Ave NW, Washington DC`
         console.log(getCoordUrl);                 
     } else {
         var country= searchParam.pop();
         var city= searchParam.pop();
-        getCoordUrl= `https://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&appid=${APIkey}`;
+        // getCoordUrl= `https://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&appid=${APIkey}`;
         console.log(getCoordUrl); 
     }
     searchCoord(getCoordUrl)
